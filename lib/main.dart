@@ -158,6 +158,14 @@ class ContentSpace extends StatelessWidget {
     "Rain Collection",
     "Others",
   ];
+  
+  //create screens for different tabs
+  final List screens = [
+    NatureScreen(),
+    ForestScreen(),
+    RainScreen(),
+    Others(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -209,20 +217,8 @@ class ContentSpace extends StatelessWidget {
               ),),
               SizedBox(height: 5 * SizeConfig.heightMultiplier,),
               Expanded(
-                child: ListView(
-                  children: [
-                    _colorContainer("The Forest", "3.15s", "01", Color(0xff5ac786), "assets/images/forest.png"),
-                    SizedBox(height: 5 * SizeConfig.heightMultiplier,),
-                    _colorContainer("Bird Cry", "2.48s", "02", Color(0xff6e74e1), "assets/images/bird.png"),
-                    SizedBox(height: 5 * SizeConfig.heightMultiplier,),
-                    _colorContainer("Sound of Wind", "1.49s", "03", Color(0xfff7bf45), "assets/images/wind.png"),
-                    SizedBox(height: 5 * SizeConfig.heightMultiplier,),
-                    _colorContainer("Rainy Day", "4.05s", "04", Colors.blue, "assets/images/forest.png"),
-                    SizedBox(height: 5 * SizeConfig.heightMultiplier,),
-                    _colorContainer("Icy Weather", "3.22s", "05", Colors.indigo, "assets/images/wind.png"),
-                    SizedBox(height: 5 * SizeConfig.heightMultiplier,),
-                  ],
-                ),
+                child: screens[_selectedIndex],
+              ),
               ),
             ],
           ),
